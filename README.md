@@ -6,7 +6,7 @@ The button matrix is first scanned horizontally by pulling each row high and the
 
 After the matrix is read, the potentiometer is read. The board I'm using goes from 0 to 1023 when reading up to 5V analog, and since MIDI allows for up to 10 octaves, I chose to divide the reading by 100 to get 10 possible integer values.
 
-Then, if there were any changes in the button state, the data packet is constructed. First byte sent is 0xFF as a magic number, then upper 8 bits of the 16-bit button state number, then the lower 8 bits of that number, then a single byte indicating the octave, and a magic 0x00 byte.
+Then, if there were any changes in the button state (not counting the potentiometer), the data packet is constructed. First byte sent is 0xFF as a magic number, then upper 8 bits of the 16-bit button state number, then the lower 8 bits of that number, then a single byte indicating the octave, and a magic 0x00 byte.
 
 Since my board was not compatible with the USBMidi library, I had to send this data via serial communication, to be interpreted by an interfacing program I made in C# that maps the buttons and octave to MIDI notes using the WetMidi library. I created a virtual MIDI device using loopMIDI, then hooked the program to that device, and had the program send MIDI commands based on the data received from the physical board. This could then be read by any program. I tested it using FL Studio Demo, and was able to hook up the device to the DAW and play any instrument without issues.
 
