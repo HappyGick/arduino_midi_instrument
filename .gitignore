@@ -1,0 +1,44 @@
+# .NET build output
+[Bb]in
+[Oo]bj
+[Dd]ebug
+[Rr]elease
+
+# NuGet
+*.nupkg
+*.snupkg
+project.nuget.cache
+
+# User-specific / IDE files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/
+.idea/
+*.rsuser
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.ipdb
+*.log
+*.tlog
+
+# Arduino build output
+arduino_midi_instrument/build/
+*.elf
+*.hex
+*.eep
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
